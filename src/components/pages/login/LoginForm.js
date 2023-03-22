@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
     const [inputValue, setInputValue] = useState("");
@@ -25,7 +26,7 @@ const LoginForm = () => {
         placeholder="Entrez votre prénom..."
         required
       />
-      <button>Accédez à votre espace</button>
+      <Link to="/order"><button>Accédez à votre espace</button></Link>
     </form>
   )
 }
