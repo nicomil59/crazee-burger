@@ -8,10 +8,14 @@ const OrderPage = () => {
   return (
     <OrderPageStyled>
       <div className="container">
-        <h1>Bonjour {username}</h1>
-        <Link to="/">
-          <button>Déconnexion</button>
-        </Link>
+        <div className="navbar">
+          Navbar
+          <h1>Bonjour {username}</h1>
+          <Link to="/">
+            <button>Déconnexion</button>
+          </Link>
+        </div>
+        <div className="main">Main</div>
       </div>
     </OrderPageStyled>
   );
@@ -27,8 +31,20 @@ const OrderPageStyled = styled.div`
   align-items: center;
 
   .container {
-    width: 1400px;
     background: red;
+    width: 1400px;
     height: 95vh;
+    display: flex;
+    flex-direction: column;
+
+    .navbar {
+      background-color: blue;
+      height: 10vh;
+    }
+
+    .main {
+      background-color: green;
+      flex: 1; // or you can also use this : height: calc(95vh - 10vh);
+    }
   }
 `;
