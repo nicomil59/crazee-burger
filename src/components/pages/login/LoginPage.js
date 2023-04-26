@@ -6,7 +6,7 @@ import Logo from "../../reusable-ui/Logo";
 const LoginPage = () => {
   return (
     <LoginPageStyled>
-      <Logo />
+      <Logo className={"logo-login-page"} />
       <LoginForm />
     </LoginPageStyled>
   );
@@ -23,7 +23,8 @@ const LoginPageStyled = styled.div`
 
   ::before {
     content: "";
-    background: url('/images/burger-and-fries-background.jpg') rgba(0, 0, 0, 0.5);
+    background: url("/images/burger-and-fries-background.jpg")
+      rgba(0, 0, 0, 0.5);
     background-size: cover;
     background-position: center;
     background-blend-mode: darken;
@@ -34,5 +35,9 @@ const LoginPageStyled = styled.div`
     right: 0;
     bottom: 0;
     z-index: -1;
+  }
+
+  .logo-login-page {
+    transform: scale(2.5);
   }
 `;
