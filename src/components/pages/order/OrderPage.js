@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import { theme } from "../../../theme";
 
 const OrderPage = () => {
   const { username } = useParams();
@@ -25,12 +26,13 @@ const OrderPageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   .container {
     background: red;
     width: 1400px;
     height: 95vh;
     display: flex;
     flex-direction: column;
+    border-radius: ${theme.borderRadius.extraRound};
   }
 `;
