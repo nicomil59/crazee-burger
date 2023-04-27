@@ -3,11 +3,15 @@ import styled from "styled-components";
 import NavbarRightSide from "./NavbarRightSide";
 import Logo from "../../reusable-ui/Logo";
 import { theme } from "../../../theme";
+import { refreshPage } from "../../../utils/window";
 
 const Navbar = ({ username }) => {
   return (
     <NavbarStyled>
-      <Logo />
+      <Logo
+        onClick={refreshPage}
+        className={"logo-order-page"}
+      />
       <NavbarRightSide username={username} />
     </NavbarStyled>
   );
@@ -21,6 +25,11 @@ const NavbarStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-  border-radius: ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound} 0 0;
+  border-radius: ${theme.borderRadius.extraRound}
+    ${theme.borderRadius.extraRound} 0 0;
   /* align-items: center; */
+
+  .logo-order-page {
+    cursor: pointer;
+  }
 `;
