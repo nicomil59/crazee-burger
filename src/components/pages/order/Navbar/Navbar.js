@@ -27,6 +27,7 @@ const NavbarStyled = styled.nav`
   padding: 0 20px;
   border-radius: ${theme.borderRadius.extraRound}
     ${theme.borderRadius.extraRound} 0 0;
+  border-bottom: 1px solid ${theme.colors.greyLight};
   /* align-items: center; */
 
   .logo-order-page {
