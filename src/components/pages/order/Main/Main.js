@@ -22,6 +22,8 @@ const MainStyled = styled.div`
   /* grid-template-columns: 25% 1fr; */
   grid-template-columns: 1fr;
 
+  overflow-y: auto;
+
   /* .basket {
     background: pink;
   } */
