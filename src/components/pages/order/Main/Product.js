@@ -24,10 +24,16 @@ const ProductStyled = styled.div`
   height: 330px;
   background: lightblue;
 
+  display: grid;
+  grid-template-rows: 65% 1fr;
+  padding: 20px 20px 10px;
+  box-sizing: border-box;
+
   .image {
     border: 1px solid fuchsia;
-    width: 100px;
+    width: 100%;
     height: auto;
+    margin-top: 30px;
 
     img {
       width: 100%;
@@ -36,7 +42,7 @@ const ProductStyled = styled.div`
     }
   }
 
-  .description {
+  .info-text {
     border: 1px solid fuchsia;
   }
 `;
