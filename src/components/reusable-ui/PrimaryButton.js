@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const PrimaryButton = ({ label, Icon, }) => {
+const PrimaryButton = ({ label, Icon, className }) => {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled className={className}>
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>

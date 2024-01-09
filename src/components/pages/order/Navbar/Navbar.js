@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import NavbarRightSide from "./NavbarRightSide";
-import Logo from "../../reusable-ui/Logo";
-import { theme } from "../../../theme";
-import { refreshPage } from "../../../utils/window";
+import Logo from "../../../reusable-ui/Logo";
+import { theme } from "../../../../theme";
+import { refreshPage } from "../../../../utils/window";
 
 const Navbar = ({ username }) => {
   return (
@@ -27,6 +27,7 @@ const NavbarStyled = styled.nav`
   padding: 0 20px;
   border-radius: ${theme.borderRadius.extraRound}
     ${theme.borderRadius.extraRound} 0 0;
+  border-bottom: 1px solid ${theme.colors.greyLight};
   /* align-items: center; */
 
   .logo-order-page {
