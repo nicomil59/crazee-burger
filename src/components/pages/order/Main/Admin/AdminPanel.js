@@ -3,7 +3,7 @@ import { theme } from "../../../../../theme";
 
 const AdminPanel = () => {
   return (
-    <AdminPanelStyled>AdminPanel</AdminPanelStyled>
+    <AdminPanelStyled></AdminPanelStyled>
   )
 }
 
