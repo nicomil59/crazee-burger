@@ -6,12 +6,12 @@ import Main from "./Main/Main";
 import OrderContext from "../../../context/OrderContext";
 
 const OrderPage = () => {
-  
   //state
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAddSelected, setIsAddSelected] = useState(true);
   const [isEditSelected, setIsEditSelected] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
   const orderContextValue = {
     isModeAdmin,
@@ -21,7 +21,9 @@ const OrderPage = () => {
     isAddSelected,
     setIsAddSelected,
     isEditSelected,
-    setIsEditSelected
+    setIsEditSelected,
+    currentTabSelected,
+    setCurrentTabSelected
   };
 
   return (
@@ -44,7 +46,7 @@ const OrderPageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   .container {
     background: red;
     width: 1400px;
