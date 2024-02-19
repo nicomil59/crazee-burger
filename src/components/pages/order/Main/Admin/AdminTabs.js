@@ -44,7 +44,6 @@ const AdminTabs = () => {
 export default AdminTabs;
 
 const AdminTabsStyled = styled.div`
-  /* border: 1px solid red; */
   display: flex;
 
   .is-active {
