@@ -26,7 +26,7 @@ const MainStyled = styled.div`
   height: calc(95vh - 10vh);
 
   border-radius: 0 0 ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: ${theme.shadows.strong};
 
   display: grid;
   /* grid-template-columns: 25% 1fr; */
