@@ -8,7 +8,7 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton";
 import { theme } from "../../../theme";
 
 const LoginForm = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("Kylian");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
