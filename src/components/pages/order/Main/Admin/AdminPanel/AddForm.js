@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../../../../../context/OrderContext";
 
 const AddForm = () => {
+  const { handleAdd } = useContext(OrderContext);
+
+  const newProduct = {
+    id: new Date().getTime(),
+    title: "new product",
+    imageSource: "https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg",
+    price: 2.5,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAdd(newProduct);
+  };
+
   return (
-    <AddFormStyled>
+    <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview">ImagePreview</div>
       <div className="input-fields">
         <input type="text" placeholder="Nom" />
