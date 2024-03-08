@@ -1,29 +1,67 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 
 const AddForm = () => {
+  // State
+
   const { handleAdd } = useContext(OrderContext);
 
-  const newProduct = {
-    id: new Date().getTime(),
-    title: "new product",
-    imageSource: "https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg",
-    price: 2.5,
-  };
+  const [title, setTitle] = useState("");
+  const [imageSource, setImageSource] = useState("");
+  const [price, setPrice] = useState(0);
+
+  // Comportements
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newProduct = {
+      id: new Date().getTime(),
+      title: title,
+      imageSource: imageSource,
+      price: price
+    };
+
     handleAdd(newProduct);
   };
 
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleImageSourceChange = (e) => {
+    setImageSource(e.target.value);
+  };
+
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
+
+  // Affichage
+
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">ImagePreview</div>
+      <div className="image-preview">Aucune image</div>
       <div className="input-fields">
-        <input type="text" placeholder="Nom" />
-        <input type="text" placeholder="Image Url" />
-        <input type="text" placeholder="Prix" />
+        <input
+          onChange={handleTitleChange}
+          value={title}
+          type="text"
+          placeholder="Nom"
+        />
+        <input
+          onChange={handleImageSourceChange}
+          value={imageSource}
+          type="text"
+          placeholder="Image Url"
+        />
+        <input
+          onChange={handlePriceChange}
+          value={price ? price : ""}
+          type="text"
+          placeholder="Prix"
+        />
       </div>
       <button className="submit-button">Submit button</button>
     </AddFormStyled>
