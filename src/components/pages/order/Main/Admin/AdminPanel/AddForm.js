@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -15,6 +16,7 @@ const AddForm = () => {
   const { handleAdd } = useContext(OrderContext);
 
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Comportements
 
@@ -23,12 +25,13 @@ const AddForm = () => {
 
     const newProductToAdd = {
       ...newProduct,
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     };
 
     handleAdd(newProductToAdd);
-
     setNewProduct(EMPTY_PRODUCT);
+
+    displaySuccessMessage();
   };
 
   const handleChange = (e) => {
@@ -40,12 +43,23 @@ const AddForm = () => {
     });
   };
 
+  const displaySuccessMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
+  };
+
   // Affichage
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview">
-        {newProduct.imageSource ? <img src={newProduct.imageSource} alt={newProduct.title} /> : <p>Aucune image</p>}
+        {newProduct.imageSource ? (
+          <img src={newProduct.imageSource} alt={newProduct.title} />
+        ) : (
+          <p>Aucune image</p>
+        )}
       </div>
       <div className="input-fields">
         <input
@@ -70,7 +84,15 @@ const AddForm = () => {
           placeholder="Prix"
         />
       </div>
-      <button className="submit-button">Submit button</button>
+      <div className="submit">
+        <button className="submit-button">Submit button</button>
+        {isSubmitted && (
+          <div className="submit-message">
+            <FiCheck />
+            <span>Ajouté avec succès !</span>
+          </div>
+        )}
+      </div>
     </AddFormStyled>
   );
 };
@@ -93,8 +115,8 @@ const AddFormStyled = styled.form`
     align-items: center;
 
     img {
-      width: 100%;;
-      height: 100%;;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       object-position: center;
     }
@@ -104,9 +126,18 @@ const AddFormStyled = styled.form`
     grid-area: 1 / 2 / 4 / 3;
     display: grid;
   }
-  .submit-button {
+  .submit {
     background: green;
     grid-area: 4 / 2 / 5 / 3;
-    width: 50%;
+    display: flex;
+    align-items: center;
+
+    .submit-button {
+      width: 50%;
+    }
+
+    .submit-message {
+      border: 1px solid red;
+    }
   }
 `;
