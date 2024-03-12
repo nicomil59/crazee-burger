@@ -9,7 +9,7 @@ const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
 
-  const {menu} = useContext(OrderContext);
+  const { menu, isModeAdmin } = useContext(OrderContext);
 
   return (
     <MenuStyled>
@@ -20,6 +20,7 @@ const Menu = () => {
             imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT }
             leftDescription={formatPrice(price)}
             key={id}
+            hasDeleteButton={isModeAdmin}
           />
         );
       })}
