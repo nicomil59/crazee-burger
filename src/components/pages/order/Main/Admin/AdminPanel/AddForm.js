@@ -42,7 +42,9 @@ const AddForm = () => {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">Aucune image</div>
+      <div className="image-preview">
+        {newProduct.imageSource ? <img src={newProduct.imageSource} alt={newProduct.title} /> : <p>Aucune image</p>}
+      </div>
       <div className="input-fields">
         <input
           onChange={handleChange}
@@ -84,6 +86,16 @@ const AddFormStyled = styled.form`
   .image-preview {
     background: red;
     grid-area: 1 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;;
+      height: 100%;;
+      object-fit: contain;
+      object-position: center;
+    }
   }
   .input-fields {
     background: blue;
