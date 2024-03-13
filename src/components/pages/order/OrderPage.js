@@ -9,9 +9,9 @@ import { fakeMenu } from "../../../fakeData/fakeMenu";
 const OrderPage = () => {
   //state
   const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [menu, setMenu] = useState(fakeMenu.SMALL);
 
   const handleAdd = newProduct => {
     
@@ -37,6 +37,10 @@ const OrderPage = () => {
     setMenu(menuUpdated);
   }
 
+  const resetMenu = () => {
+    setMenu(fakeMenu.SMALL);
+  }
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -45,6 +49,7 @@ const OrderPage = () => {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
+    resetMenu,
     handleAdd,
     handleDelete
   };
