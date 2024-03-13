@@ -3,11 +3,11 @@ import PrimaryButton from "./PrimaryButton";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 
-const Card = ({ title, imageSource, leftDescription, hasDeleteButton }) => {
+const Card = ({ title, imageSource, leftDescription, hasDeleteButton, onDelete }) => {
   return (
     <CardStyled>
       {hasDeleteButton && (
-        <button className="delete-button" aria-label="delete-button">
+        <button className="delete-button" aria-label="delete-button" onClick={onDelete}>
           <TiDelete className="icon" />
         </button>
       )}

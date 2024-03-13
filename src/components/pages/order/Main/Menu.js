@@ -9,7 +9,7 @@ const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
 
-  const { menu, isModeAdmin } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDelete } = useContext(OrderContext);
 
   return (
     <MenuStyled>
@@ -21,6 +21,7 @@ const Menu = () => {
             leftDescription={formatPrice(price)}
             key={id}
             hasDeleteButton={isModeAdmin}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}
