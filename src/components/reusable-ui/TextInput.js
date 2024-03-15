@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-const TextInput = ({ value, onChange, Icon, ...extraProps }) => {
+const TextInput = ({ value, onChange, Icon, className, ...extraProps }) => {
   return (
-    <InputStyled>
-      {Icon && Icon}
+    <InputStyled className={className}>
+      <div className="icon">{Icon && Icon}</div>
       <input type="text" value={value} onChange={onChange} {...extraProps} />
     </InputStyled>
   );
@@ -18,11 +18,14 @@ const InputStyled = styled.div`
   display: flex;
   align-items: center;
   padding: 18px 24px;
-  margin: 18px 0;
+  /* margin: 18px 0; */
 
   .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: ${theme.fonts.size.SM};
-    margin-right: ${theme.spacing.xs};
+    margin: 0 8px 0 10px; 
     color: ${theme.colors.greySemiDark};
   }
 

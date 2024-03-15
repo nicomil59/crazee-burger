@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 const PrimaryButton = ({ label, Icon, className }) => {
   return (
     <PrimaryButtonStyled className={className}>
       <span>{label}</span>
-      {Icon && Icon}
+      <div className="icon">{Icon && Icon}</div>
     </PrimaryButtonStyled>
   );
 };
@@ -46,5 +47,13 @@ const PrimaryButtonStyled = styled.button`
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: ${theme.fonts.size.SM};
+    margin-left: 10px;
   }
 `;
