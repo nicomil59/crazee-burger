@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-const Button = ({ label, Icon, className, version = "primary" }) => {
+const Button = ({ label, Icon, className, version = "primary", onClick }) => {
   return (
-    <ButtonStyled className={className} version={version}>
+    <ButtonStyled className={className} version={version} onClick={onClick}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyled>
