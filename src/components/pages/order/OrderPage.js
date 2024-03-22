@@ -9,8 +9,8 @@ import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm";
 
 const OrderPage = () => {
   //state
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
@@ -40,7 +40,7 @@ const OrderPage = () => {
   }
 
   const resetMenu = () => {
-    setMenu(fakeMenu.SMALL);
+    setMenu(fakeMenu.MEDIUM);
   }
 
   const orderContextValue = {
